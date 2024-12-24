@@ -1,4 +1,11 @@
-public class CompteEpagne {
+public class CompteEpagne extends Compte{
     private String tauxInteret;
 
+    public String getTauxInteret() {
+        return tauxInteret;
+    }
+
+    public void setTauxInteret(String tauxInteret) {
+        this.tauxInteret = tauxInteret;
+    }
 }
