@@ -3,6 +3,12 @@ public class Operation {
     private String Montant;
     private String Date;
 
+    public Operation(String Type, String Montant, String Date){
+        this.Type = Type;
+        this.Montant = Montant;
+        this.Date = Date;
+    }
+
     public String getType() {
         return Type;
     }

@@ -3,6 +3,12 @@ public class Compte {
     private Double Solde;
     private Client Preprietaire;
 
+    public Compte(String numero,Double Solde, Client Preprietaire) {
+        this.Numero = numero;
+        this.Solde = Solde;
+        this.Preprietaire = Preprietaire;
+    }
+
     public String getNumero() {
         return Numero;
     }

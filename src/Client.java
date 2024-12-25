@@ -6,6 +6,16 @@ public class Client {
     private String Adresse;
     private String Telephone;
 
+    public Client(int Id, String Nom, String Prenom, String Email, String Adresse, String Telephone) {
+        this.Id = Id;
+        this.Nom = Nom;
+        this.Prenom = Prenom;
+        this.Email = Email;
+        this.Adresse = Adresse;
+        this.Telephone = Telephone;
+
+    }
+
     public int getId() {
         return Id;
     }
@@ -47,10 +57,12 @@ public class Client {
     }
 
     public String getTelephone() {
+
         return Telephone;
     }
 
     public void setTelephone(String telephone) {
+
         Telephone = telephone;
     }
 }
