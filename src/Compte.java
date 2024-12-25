@@ -9,27 +9,25 @@ public class Compte {
         this.Preprietaire = Preprietaire;
     }
 
-    public String getNumero() {
-        return Numero;
+    @Override
+    public String toString() {
+        return "Compte{" +
+                "Numero='" + Numero + '\'' +
+                ", Solde=" + Solde +
+                ", Preprietaire=" + Preprietaire +
+                '}';
     }
 
-    public void setNumero(String numero) {
-        Numero = numero;
+    public String getNumero() {
+        return Numero;
     }
 
     public Double getSolde() {
         return Solde;
     }
 
-    public void setSolde(Double solde) {
-        Solde = solde;
-    }
-
     public Client getPreprietaire() {
         return Preprietaire;
     }
 
-    public void setPreprietaire(Client preprietaire) {
-        Preprietaire = preprietaire;
-    }
 }

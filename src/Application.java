@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Application {
 
-    private static ArrayList<Client> Clients = new ArrayList<>(); // Declare Clients collection
+    private static ArrayList<Client> Clients = new ArrayList<>();
+    private static ArrayList<Compte> Comptes = new ArrayList<>();// Declare Clients collection
 
     public static void main(String art[]) {
     Application application = new Application();
@@ -25,7 +26,7 @@ public class Application {
                     application.viewClient();
                     break;
                 case 3:
-
+                    application.addCompte(scanner);
                     break;
                 default:
                     System.out.println("Invalid option. Try again.");
@@ -68,4 +69,45 @@ public class Application {
             }
         }
     }
+    private void addCompte(Scanner scanner) {
+        System.out.println("Entre le numero de compte ");
+        String numero = scanner.nextLine();
+
+        System.out.println("Entre le solde de compte");
+        Double solde = null;
+        try {
+            solde = Double.parseDouble(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Solde invalide. Veuillez entrer un nombre valide.");
+            return;
+        }
+
+        System.out.println("Entre l'ID du propriétaire");
+        int proprietaireId = 0;
+        try {
+            proprietaireId = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("ID invalide. Veuillez entrer un entier valide.");
+            return;
+        }
+
+        Client proprietaire = null;
+        for (Client client : Clients) {
+            if (client.getId() == proprietaireId) {
+                proprietaire = client;
+                break;
+            }
+        }
+
+        if (proprietaire == null) {
+            System.out.println("Propriétaire introuvable.");
+            return;
+        }
+
+        Compte compte = new Compte(numero, solde, proprietaire);
+        Comptes.add(compte);
+
+        System.out.println("Compte ajouté avec succès !");
+    }
+
 }
