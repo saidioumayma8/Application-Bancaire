@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Client {
     private int Id;
     private String Nom;
@@ -5,6 +7,8 @@ public class Client {
     private String Email;
     private String Adresse;
     private String Telephone;
+
+    public static ArrayList<Client> clients=new ArrayList<>();
 
     public Client(int Id, String Nom, String Prenom, String Email, String Adresse, String Telephone) {
         this.Id = Id;
@@ -14,6 +18,18 @@ public class Client {
         this.Adresse = Adresse;
         this.Telephone = Telephone;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "Id=" + Id +
+                ", Nom='" + Nom + '\'' +
+                ", Prenom='" + Prenom + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Adresse='" + Adresse + '\'' +
+                ", Telephone='" + Telephone + '\'' +
+                '}';
     }
 
     public int getId() {
@@ -66,3 +82,5 @@ public class Client {
         Telephone = telephone;
     }
 }
+
+
