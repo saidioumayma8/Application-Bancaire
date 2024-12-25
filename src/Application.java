@@ -110,4 +110,14 @@ public class Application {
         System.out.println("Compte ajouté avec succès !");
     }
 
+    private void viewCompte(){
+        if (Comptes.isEmpty()){
+            System.out.println("No Comptes available.");
+        }else{
+            for (Compte compte : Comptes){
+                System.out.println(compte);
+            }
+        }
+    }
+
 }
