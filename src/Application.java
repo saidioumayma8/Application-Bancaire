@@ -59,5 +59,13 @@ public class Application {
 
         System.out.println("Client added successfully!");
     }
-
+    private  void viewClient() {
+        if (Clients.isEmpty()) {
+            System.out.println("No Clients available.");
+        } else {
+            for (Client client : Clients) {
+                System.out.println(client);
+            }
+        }
+    }
 }
