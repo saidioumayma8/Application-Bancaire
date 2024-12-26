@@ -9,6 +9,7 @@ public class Operation {
         this.Date = Date;
     }
 
+
     public String getType() {
         return Type;
     }

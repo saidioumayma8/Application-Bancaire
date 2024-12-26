@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,10 +22,10 @@ public class Application {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    application.addClient(scanner);
+                    application.manageClients(scanner, application);
                     break;
                 case 2:
-                    application.viewClient();
+                    application.manageCompte(scanner, application);
                     break;
                 case 3:
                     application.addCompte(scanner);
@@ -35,6 +37,31 @@ public class Application {
         }
     }
 
+    private void manageClients(Scanner scanner, Application application) {
+
+        while (true) {
+            System.out.println("\n--- Manage Client ---");
+            System.out.println("1. Add Client");
+            System.out.println("2. View Clients");
+            System.out.println("5. Back to Main Menu");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    application.addClient(scanner);
+                    break;
+                case 2:
+                    application.viewClient();
+                    break;
+                case 5:
+                    return;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
     private  void addClient(Scanner scanner) {
         System.out.println("Enter Client ID:");
         int Id = scanner.nextInt();
@@ -66,6 +93,31 @@ public class Application {
         } else {
             for (Client client : Clients) {
                 System.out.println(client);
+            }
+        }
+    }
+    private void manageCompte(Scanner scanner, Application application) {
+
+        while (true) {
+            System.out.println("\n--- Manage Compte ---");
+            System.out.println("1. Add Compte");
+            System.out.println("2. View Compte");
+            System.out.println("5. Back to Main Menu");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (choice) {
+                case 1:
+                    application.addCompte(scanner);
+                    break;
+                case 2:
+                    application.viewCompte();
+                    break;
+                case 5:
+                    return;
+                default:
+                    System.out.println("Invalid choice. Try again.");
             }
         }
     }
@@ -109,7 +161,6 @@ public class Application {
 
         System.out.println("Compte ajouté avec succès !");
     }
-
     private void viewCompte(){
         if (Comptes.isEmpty()){
             System.out.println("No Comptes available.");
@@ -118,6 +169,10 @@ public class Application {
                 System.out.println(compte);
             }
         }
+    }
+    private void effectueDepot(){
+        System.out.println("Entre votre numero de compte");
+        
     }
 
 }

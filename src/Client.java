@@ -7,7 +7,7 @@ public class Client {
     private String Email;
     private String Adresse;
     private String Telephone;
-
+    Application application = new Application();
     public Client(int id, String Nom, String Prenom, String Email, String Adresse, String Telephone) {
         this.id = id;
         this.Nom = Nom;
@@ -17,6 +17,8 @@ public class Client {
         this.Telephone = Telephone;
 
     }
+
+
 
     @Override
     public String toString() {
