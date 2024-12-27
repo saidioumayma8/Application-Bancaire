@@ -6,7 +6,10 @@ public class CompteCourant extends Compte {
         this.fraisBancaires = fraisBancaires;
 
     }
-
+    public static void addCompteCourant(String numero, Double solde, Client proprietaire) {
+        CompteCourant compte = new CompteCourant(numero, solde, proprietaire);
+        Comptes.add(compte); // Add to the shared list
+    }
     public String getFraisBancaires() {
         return fraisBancaires;
     }
