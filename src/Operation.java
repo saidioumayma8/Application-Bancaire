@@ -16,7 +16,7 @@ public class Operation {
         this.Date = Date;
     }
 
-    public static void effectuerDepot(Scanner scanner, Application application) {
+    public static void effectuerDepot(Scanner scanner) {
         System.out.println("Entre le numero du compte pour le depot:");
         String numeroCompte = scanner.nextLine();
 
@@ -49,29 +49,37 @@ public class Operation {
 
 
         compteTrouve.setSolde(compteTrouve.getSolde() + montant);
+        Operations.add(new Operation("Depot", String.valueOf(montant), java.time.LocalDate.now().toString()));
         System.out.println("Dépôt effectué avec succès ! Nouveau solde: " + compteTrouve.getSolde());
     }
-    public static void manageOperation(Scanner scanner, Application application) {
+    public static void manageOperation(Scanner scanner) {
 
         while (true) {
             System.out.println("\n--- Manage Operation ---");
             System.out.println("1.Effectuer un depot sur un compte.");
             System.out.println("2.Effectuer un retrait (avec verification de solde).");
-            System.out.println("5.Effectuer un virement entre deux comptes.");
-            System.out.println("5.Afficher l’historique des operations pour un compte.");
+            System.out.println("3.Effectuer un virement entre deux comptes.");
+            System.out.println("4.Afficher l’historique des operations pour un compte.");
 
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice;
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                continue;
+            }
 
             switch (choice) {
                 case 1:
-                    effectuerDepot(scanner, application);
+                    effectuerDepot(scanner);
                     break;
                 case 2:
 
                     break;
-                case 5:
+                case 3:
+                    return;
+                case 4:
                     return;
                 default:
                     System.out.println("Invalid choice. Try again.");

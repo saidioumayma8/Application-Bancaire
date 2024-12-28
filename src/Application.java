@@ -21,13 +21,13 @@ public class Application {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    Client.manageClients(scanner, application);
+                    Client.manageClients(scanner);
                     break;
                 case 2:
-                    Compte.manageCompte(scanner, application);
+                    Compte.manageCompte(scanner);
                     break;
                 case 3:
-                    Operation.manageOperation(scanner, application);
+                    Operation.manageOperation(scanner);
                     break;
                 default:
                     System.out.println("Invalid option. Try again.");

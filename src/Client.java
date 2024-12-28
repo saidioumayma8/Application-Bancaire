@@ -9,10 +9,10 @@ public class Client {
     private String Adresse;
     private String Telephone;
 
-    private static ArrayList<Operation> Operations = new ArrayList<>();
+    // Static collection to store clients
     private static ArrayList<Client> Clients = new ArrayList<>();
-    private static ArrayList<Compte> Comptes = new ArrayList<>();// Declare Clients collection
 
+    // Constructor
     public Client(int id, String Nom, String Prenom, String Email, String Adresse, String Telephone) {
         this.id = id;
         this.Nom = Nom;
@@ -22,9 +22,8 @@ public class Client {
         this.Telephone = Telephone;
     }
 
-
-    public static void manageClients(Scanner scanner, Application application) {
-
+    // Method to manage clients
+    public static void manageClients(Scanner scanner) {
         while (true) {
             System.out.println("\n--- Manage Client ---");
             System.out.println("1. Add Client");
@@ -39,7 +38,7 @@ public class Client {
                     addClient(scanner);
                     break;
                 case 2:
-                    viewClient();
+                    viewClients();
                     break;
                 case 5:
                     return;
@@ -48,6 +47,8 @@ public class Client {
             }
         }
     }
+
+    // Method to add a client
     public static void addClient(Scanner scanner) {
         System.out.println("Enter Client ID:");
         int Id = scanner.nextInt();
@@ -68,12 +69,15 @@ public class Client {
         System.out.println("Enter Client Telephone:");
         String Telephone = scanner.nextLine();
 
+        // Create a new client and add to the list
         Client client = new Client(Id, Nom, Prenom, Email, Adresse, Telephone);
         Clients.add(client);
 
         System.out.println("Client added successfully!");
     }
-    public static void viewClient() {
+
+    // Method to view clients
+    public static void viewClients() {
         if (Clients.isEmpty()) {
             System.out.println("No Clients available.");
         } else {
@@ -82,15 +86,17 @@ public class Client {
             }
         }
     }
-    public static Client IsClientExist (int clientId){
-        for(Client client : Clients){
-            if(client.getId() == clientId){
+
+    // Method to check if a client exists
+    public static Client isClientExist(int clientId) {
+        for (Client client : Clients) {
+            if (client.getId() == clientId) {
                 return client;
             }
         }
         return null;
-
     }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -104,33 +110,26 @@ public class Client {
     }
 
     public int getId() {
-
         return id;
     }
 
     public String getNom() {
-
         return Nom;
     }
 
     public String getPrenom() {
-
         return Prenom;
     }
 
     public String getEmail() {
         return Email;
     }
-    public String getAdresse() {
 
+    public String getAdresse() {
         return Adresse;
     }
 
     public String getTelephone() {
         return Telephone;
     }
-
 }
-
-
-
