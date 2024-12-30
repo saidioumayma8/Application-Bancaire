@@ -16,6 +16,7 @@ public class Operation {
         this.Date = Date;
     }
 
+
     public static void effectuerDepot(Scanner scanner) {
         System.out.println("Entre le numero du compte pour le depot:");
         String numeroCompte = scanner.nextLine();
